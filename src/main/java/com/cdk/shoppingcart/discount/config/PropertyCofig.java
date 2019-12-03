@@ -14,6 +14,7 @@ public class PropertyCofig {
 	
 	private Map<String, Double> discountMap;
 	
+	private double MAX_PURCHASE_AMOUNT;
 
 	public Map<String, List<Double>> getDiscountRangeMap() {
 		return discountRangeMap;
@@ -30,6 +31,15 @@ public class PropertyCofig {
 	public void setDiscountMap(Map<String, Double> discountMap) {
 		this.discountMap = discountMap;
 	}
+
+	public double getMAX_PURCHASE_AMOUNT() {
+		return MAX_PURCHASE_AMOUNT;
+	}
+
+	public void setMAX_PURCHASE_AMOUNT(double mAX_PURCHASE_AMOUNT) {
+		MAX_PURCHASE_AMOUNT = mAX_PURCHASE_AMOUNT;
+	}
+	
 	
 	
 	

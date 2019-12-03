@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cdk.shoppingcart.discount.config.PropertyCofig;
 import com.cdk.shoppingcart.discount.dto.BillDetails;
 import com.cdk.shoppingcart.discount.service.ProcessBillService;
 
@@ -18,10 +19,13 @@ public class DiscountController {
 	@Autowired
 	ProcessBillService billService;
 	
+	@Autowired
+	PropertyCofig config;
+	
 	@GetMapping(value = "/amount/{purchaseAmount}")
 	public ResponseEntity<BillDetails> calculateDiscount(@PathVariable Double purchaseAmount) {
 		
-		if( null == purchaseAmount || 0 >= purchaseAmount) {
+		if( null == purchaseAmount || 0 >= purchaseAmount || config.getMAX_PURCHASE_AMOUNT() <= purchaseAmount) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
